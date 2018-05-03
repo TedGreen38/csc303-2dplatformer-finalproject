@@ -5,6 +5,7 @@ import flixel.FlxG;
 import flixel.text.FlxText;
 import flixel.util.FlxAxes;
 import flixel.util.FlxColor;
+import flixel.group.FlxGroup.FlxTypedGroup;
 
 class PlayState extends FlxState
 {
@@ -24,10 +25,13 @@ class PlayState extends FlxState
 	{
 		super.create();
 		
+		var player:Ship = new Ship(360, 240);
+		add(player);
+		
 		//creates text that displays the time on the screen
 		timerText = new FlxText(0, 20, 500); // x, y, width
 		timerText.text = "" + game_Timer;
-		timerText.setFormat(140, FlxColor.WHITE, CENTER);
+		timerText.setFormat(30, FlxColor.WHITE, CENTER);
 		add(timerText);
 		timerText.screenCenter(FlxAxes.X);
 		
@@ -44,8 +48,9 @@ class PlayState extends FlxState
 	{
 		super.update(elapsed);
 		
+		
 		if (game_Timer > 0){
-		seconds++;
+			seconds++;
 		}
 		
 		if (seconds == 60){
@@ -56,11 +61,12 @@ class PlayState extends FlxState
 		timerText.text = "" + game_Timer;
 		
 		if (game_Timer == 10){
-			timerText.setFormat(140, FlxColor.YELLOW, CENTER);
-		} else if (game_Timer == 3) {
-			timerText.setFormat(140, FlxColor.RED, CENTER);
+			timerText.setFormat(30, FlxColor.YELLOW, CENTER);
+		} else if (game_Timer == 5) {
+			timerText.setFormat(30, FlxColor.ORANGE, CENTER);
 		} else if (game_Timer == 0){
-			timerText.setFormat(140, FlxColor.BLUE, CENTER);
+			timerText.text = "Times up!";
+			timerText.setFormat(40, FlxColor.RED, CENTER);
 			timesUp_Timer++;
 			if (timesUp_Timer == timesUp_Final) {
 				FlxG.switchState(new LossState());
