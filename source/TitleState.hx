@@ -73,19 +73,19 @@ class TitleState extends FlxState
 		// if start is true, speeds up flashing of enter text for a short period of time
 		// afterwards, starts game when startTimer reaches a certain value
 		if (start == true){
-			if (enterPause <= 7) {
+			if (enterPause <= 3) {
 				enterText.alpha = 1;
 				enterPause++;
 			}
-			else if (enterPause <= 14) {
+			else if (enterPause <= 6) {
 				enterText.alpha = 0;
 				enterPause++;
 			}
-			else if (enterPause > 14) {
+			else if (enterPause > 6) {
 				enterPause = 0;
 				startTimer++;
 				
-				if (startTimer == 8){
+				if (startTimer == 12){
 					start = false;
 					startTimer = 0;
 					enterPause = 0;
