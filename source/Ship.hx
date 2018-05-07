@@ -17,7 +17,7 @@ class Ship extends FlxSprite
 	public function new(?X:Float=0, ?Y:Float=0) 
 	{
 		super(X, Y);
-		makeGraphic(20, 20);
+		loadGraphic(AssetPaths.Ship__png, true, 25, 25);
 		this.maxVelocity.set(MAX_X, MAX_Y);
 	}
 	
