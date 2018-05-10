@@ -181,7 +181,7 @@ class PlayState extends FlxState
 			1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1],
 			20, 15, AssetPaths.Brick__png, 32, 32);
 		}
-		]// level 5
+		// level 5
 		if (clear_count == 4) {
 			SHIP_START_X = 544;
 			SHIP_START_Y = 400;
